@@ -8,7 +8,7 @@ import org.json.JSONObject
 
 class DatabaseHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object{
-        private val DB_NAME = "transaksi"
+        private val DB_NAME = "toko"
         private val DB_VERSION = 1
         private val TABLE_BARANG = "barang"
     }

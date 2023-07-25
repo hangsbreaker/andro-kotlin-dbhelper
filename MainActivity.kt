@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
 
         println("GET DB")
-        println("NUM_ROWS: " +db!!.select("SELECT * FROM barang",true))
-        println(db!!.select("SELECT * FROM barang"))
+        println("NUM_ROWS: " +db!!.select("* FROM barang",true))
+        println(db!!.select("* FROM barang"))
 
         var del = db!!.delete("barang", "kdbrg='USB123'")
         if(del){
@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         println("GET DB")
-        println("NUM_ROWS: " +db!!.select("SELECT * FROM barang",true))
-        println(db!!.select("SELECT * FROM barang"))
+        println("NUM_ROWS: " +db!!.select("* FROM barang",true))
+        println(db!!.select("* FROM barang"))
 
         var upd = db!!.update("barang", "nama='Potato Cheese'", "kdbrg='SNK123'")
         if(upd){
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         println("GET DB")
-        println("NUM_ROWS: " +db!!.select("SELECT * FROM barang",true))
-        println(db!!.select("SELECT * FROM barang"))
+        println("NUM_ROWS: " +db!!.select("* FROM barang",true))
+        println(db!!.select("* FROM barang"))
     }
 }

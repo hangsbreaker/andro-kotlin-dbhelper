@@ -59,7 +59,7 @@ class DatabaseHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME, nul
 
     fun select(sql: String, num_rows:Boolean=false): String {
         val db = this.readableDatabase
-        val res = db.rawQuery("SELECT " + sql, null)
+        val res = db.rawQuery("SELECT $sql", null)
 
         if(!num_rows) {
             val json = JSONArray()

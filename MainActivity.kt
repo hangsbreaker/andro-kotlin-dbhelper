@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        db = DatabaseHelper(this)
+        db = DatabaseHelper(this, "toko")
         println("INSERT DB")
         var columns = "kdbrg, nama, harga, expired"
         var values = "'SNK123', 'Potato Chips', 500, '2022-12-12'"

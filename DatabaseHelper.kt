@@ -6,9 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper
 import org.json.JSONArray
 import org.json.JSONObject
 
-class DatabaseHelper (context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
+class DatabaseHelper (context: Context, DB_NAME: String?) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object{
-        private val DB_NAME = "toko"
+        // private val DB_NAME = "toko"
         private val DB_VERSION = 1
         private val TABLE_BARANG = "barang"
     }

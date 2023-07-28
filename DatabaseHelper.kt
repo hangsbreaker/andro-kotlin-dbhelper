@@ -14,7 +14,7 @@ class DatabaseHelper (context: Context, DB_NAME: String?) : SQLiteOpenHelper(con
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = "CREATE TABLE $TABLE_BARANG (kdbrg TEXT PRIMARY KEY, nama TEXT, harga NUMERIC, expired DATE)"
+        val query = "CREATE TABLE $TABLE_BARANG (no INTEGER PRIMARY KEY AUTOINCREMENT, kdbrg TEXT, nama TEXT, harga NUMERIC, expired DATE)"
         db?.execSQL(query)
     }
 
@@ -24,15 +24,19 @@ class DatabaseHelper (context: Context, DB_NAME: String?) : SQLiteOpenHelper(con
         onCreate(db)
     }
 
-    fun insert(table:String, columns:String, values:String): Boolean{
+    fun insert(table:String, columns:String, values:String): Int{
+        var id = 0
         val sql = "INSERT INTO $table ($columns) VALUES ($values)"
         try {
             val db = this.writableDatabase
             db?.execSQL(sql)
+            val res = db.rawQuery("select last_insert_rowid() as noid from $table", null)
+            res.moveToFirst()
+            id = res.getInt(0)
         }catch (e:java.lang.Exception){
-            return false
+            return -1
         }
-        return true
+        return id
     }
 
     fun update(table:String, set:String, where:String): Boolean{

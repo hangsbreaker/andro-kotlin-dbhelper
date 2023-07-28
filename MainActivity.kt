@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         var columns = "kdbrg, nama, harga, expired"
         var values = "'SNK123', 'Potato Chips', 500, '2022-12-12'"
         var ins = db!!.insert("barang", columns, values)
-        if(ins){
+        if(ins >= 0){
             println("Success SNK123")
         }else{
             println("Failed SNK123")
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         values = "'USB123', 'USB Super', 1000.55, '0000-00-00'"
         ins = db!!.insert("barang", columns, values)
-        if(ins){
+        if(ins >= 0){
             println("Success USB123")
         }else{
             println("Failed USB123")
